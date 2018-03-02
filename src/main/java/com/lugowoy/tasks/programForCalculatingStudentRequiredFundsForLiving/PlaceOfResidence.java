@@ -2,6 +2,7 @@ package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 02.11.2017. */
 
@@ -22,11 +23,38 @@ public class PlaceOfResidence implements Serializable, Cloneable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PlaceOfResidence)) return false;
+        PlaceOfResidence that = (PlaceOfResidence) o;
+        return getNumberOfMonthsToStay() == that.getNumberOfMonthsToStay() &&
+                Objects.equals(getCostPlaceOfResidence(), that.getCostPlaceOfResidence());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumberOfMonthsToStay(), getCostPlaceOfResidence());
+    }
+
+    @Override
     public String toString() {
         return "PlaceOfResidence[" +
                 "numberOfMonthsToStay=" + numberOfMonthsToStay +
                 ", costPlaceOfResidence=" + costPlaceOfResidence +
                 ']';
+    }
+
+    @Override
+    public PlaceOfResidence clone() {
+        PlaceOfResidence placeOfResidence = new PlaceOfResidence();
+        try {
+            placeOfResidence = (PlaceOfResidence) super.clone();
+            placeOfResidence.setNumberOfMonthsToStay(this.getNumberOfMonthsToStay());
+            placeOfResidence.setCostPlaceOfResidence(new BigDecimal(this.getCostPlaceOfResidence().doubleValue()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return placeOfResidence;
     }
 
     public int getNumberOfMonthsToStay() {

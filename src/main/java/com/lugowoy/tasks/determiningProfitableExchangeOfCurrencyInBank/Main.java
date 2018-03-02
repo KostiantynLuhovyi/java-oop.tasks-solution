@@ -1,16 +1,17 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.determine.DeterminerCurrencyProfitabilityOfBanksList;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.model.Bank;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.model.Currency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.model.TypeOfCurrency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.Fillable;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.determination.DeterminerCurrencyProfitabilityOfBanksList;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.Filling;
 import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankCurrency;
 import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankList;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,17 +20,17 @@ import java.util.Objects;
 
 public class Main {
 
-    private static Fillable<Bank> bankFillable = FillingBankList::fillingBankList;
-    private static Fillable<Bank> currencyFillable = FillingBankCurrency::fillingBankCurrency;
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Filling<Bank> FILLING_BANK = FillingBankList::fillingBankList;
+    private static final Filling<Bank> FILLING_CURRENCY = FillingBankCurrency::fillingBankCurrency;
 
     public static void main(String[] args) {
 
         List<Bank> banksListInTheCity = new ArrayList<>();
 
-        bankFillable.filling(banksListInTheCity);
-        currencyFillable.filling(banksListInTheCity);
+        FILLING_BANK.filling(banksListInTheCity);
+        FILLING_CURRENCY.filling(banksListInTheCity);
 
         Currency currency = new Currency(selectTypeOfCurrencyForExchange());
         System.out.println();
@@ -40,13 +41,22 @@ public class Main {
         TypeOfCurrency currencyInWhichYouWantToExchange = selectTheCurrencyInWhichYouWantToExchange();
         System.out.println();
 
-        DeterminerCurrencyProfitabilityOfBanksList determinerCurrencyProfitability = new DeterminerCurrencyProfitabilityOfBanksList();
+        DeterminerCurrencyProfitabilityOfBanksList determinerCurrencyProfitability =
+                                                                       new DeterminerCurrencyProfitabilityOfBanksList();
 
-        List<Bank> banks = determinerCurrencyProfitability.determineBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange(banksListInTheCity, currencyInWhichYouWantToExchange, sumToBeExchanged);
-        banks.forEach(System.out::println);
+        List<Bank> banks =
+                determinerCurrencyProfitability.determineBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange(banksListInTheCity,
+                                                                                                                   currencyInWhichYouWantToExchange,
+                                                                                                                   sumToBeExchanged);
+        if (!banks.isEmpty()) {
+            System.out.println("List of banks that have the amount to exchange money : ");
+            banks.forEach(System.out::println);
+            System.out.println();
+        }
 
-        System.out.println();
-        Bank bank = determinerCurrencyProfitability.determineBankToBestRateForConcreteCurrencyExchange(banks, currency.getTypeOfCurrency(), currencyInWhichYouWantToExchange);
+        Bank bank = determinerCurrencyProfitability.determineBankToBestRateForConcreteCurrencyExchange(banks,
+                                                                                                       currency.getTypeOfCurrency(),
+                                                                                                       currencyInWhichYouWantToExchange);
 
         if (Objects.nonNull(bank)) {
             System.out.println("The most profitable bank for the exchange of funds you choose : ");
@@ -71,7 +81,7 @@ public class Main {
                 "USD : 2 ,\n" +
                 "EUR : 3 ,\n" +
                 "RUB : 4 .");
-        int selectCurrencyForExchange = reader.readInt();
+        int selectCurrencyForExchange = READER.readInt();
 
         if ((selectCurrencyForExchange >= 1) && (selectCurrencyForExchange <= 4)) {
             typeOfCurrency = TypeOfCurrency.getIndexTypeOfCurrency(selectCurrencyForExchange);
@@ -87,7 +97,7 @@ public class Main {
         BigDecimal sumToBeExchanged = new BigDecimal(0);
 
         System.out.println("Select the sum to be exchanged : ");
-        double enterSum = reader.readDouble();
+        double enterSum = READER.readDouble();
 
         if (enterSum <= 0) {
             System.out.println("The amount was incorrectly entered.");
@@ -95,7 +105,7 @@ public class Main {
             enterTheSumToBeExchanged();
             System.out.println();
         } else {
-            sumToBeExchanged = sumToBeExchanged.add(new BigDecimal(enterSum)).setScale(2, BigDecimal.ROUND_DOWN);
+            sumToBeExchanged = sumToBeExchanged.add(new BigDecimal(enterSum)).setScale(2, RoundingMode.HALF_DOWN);
         }
         return sumToBeExchanged;
     }

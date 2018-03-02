@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory;
 
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.model.Bank;
+import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
 
 /** Created by Konstantin Lugowoy on 09.03.2017. */
 

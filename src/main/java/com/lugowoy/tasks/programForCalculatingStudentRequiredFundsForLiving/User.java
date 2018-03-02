@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 import java.io.Serializable;
 
@@ -9,6 +9,13 @@ import java.io.Serializable;
 public class User implements Serializable, Cloneable {
 
     private long userId;
+
+    public User() {
+    }
+
+    public User(long userId) {
+        this.userId = userId;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -27,13 +34,13 @@ public class User implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return "User[" +
+        return this.getClass() + "[" +
                 "userId=" + userId +
                 ']';
     }
 
     public long getUserId() {
-        return GeneratorDataRandomInteger.generateInt(0, Integer.MAX_VALUE);
+        return GeneratorRandomNumber.generateInt(0, Integer.MAX_VALUE);
     }
 
 }

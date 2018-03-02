@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 02.11.2017. */
 
@@ -13,14 +14,56 @@ public class Student extends User {
     public Student() {
     }
 
+    public Student(Name name, Stipend stipend) {
+        this.name = name;
+        this.stipend = stipend;
+    }
+
     public Student(String firstName, String secondName, double amountOfStipend) {
         this.name = new Name(firstName, secondName);
         this.stipend = new Stipend(new BigDecimal(amountOfStipend));
     }
 
-    public Student(Name name, Stipend stipend) {
+    public Student(long userId, Name name, Stipend stipend) {
+        super(userId);
         this.name = name;
         this.stipend = stipend;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        if (!super.equals(o)) return false;
+        Student student = (Student) o;
+        return Objects.equals(getName(), student.getName()) &&
+                Objects.equals(getStipend(), student.getStipend());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getName(), getStipend());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "[" +
+                "name=" + name +
+                ", stipend=" + stipend +
+                ']';
+    }
+
+    @Override
+    public Student clone() {
+        Student student = new Student();
+        try {
+            student = (Student) super.clone();
+            student.setName(this.getName().clone());
+            student.setStipend(this.getStipend().clone());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return student;
     }
 
     public Name getName() {
@@ -45,11 +88,6 @@ public class Student extends User {
         } else {
             throw new NullPointerException("null");
         }
-    }
-
-    @Override
-    public long getUserId() {
-        return super.getUserId();
     }
 
 }

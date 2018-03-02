@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving.PlaceOfResidence.PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
 
@@ -27,8 +28,10 @@ public interface Calculating {
         BigDecimal percentageOfMonthlyIncreaseInCostOfLiving = PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
         for (int i = 1; i <= 10; i++) {
             double differentPercentageOfAmount = placeOfResidence.getCostPlaceOfResidence().multiply(percentageOfMonthlyIncreaseInCostOfLiving)
-                                                    .divide(new BigDecimal(100), BigDecimal.ROUND_HALF_DOWN).doubleValue();
-            totalAmountOfMoneyForAllMonthsOfResidence = totalAmountOfMoneyForAllMonthsOfResidence.add(placeOfResidence.getCostPlaceOfResidence().add(new BigDecimal(differentPercentageOfAmount)));
+                                                                                           .divide(new BigDecimal(100), RoundingMode.HALF_DOWN)
+                                                                                           .doubleValue();
+            totalAmountOfMoneyForAllMonthsOfResidence = totalAmountOfMoneyForAllMonthsOfResidence.add(placeOfResidence.getCostPlaceOfResidence()
+                                                                                                 .add(new BigDecimal(differentPercentageOfAmount)));
             percentageOfMonthlyIncreaseInCostOfLiving = percentageOfMonthlyIncreaseInCostOfLiving.add(new BigDecimal(3));
         }
         return totalAmountOfMoneyForAllMonthsOfResidence;
