@@ -3,5 +3,4 @@ package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndT
 /** Created by Konstantin Lugowoy on 10.04.2017. */
 
 public interface Determination {
-
 }

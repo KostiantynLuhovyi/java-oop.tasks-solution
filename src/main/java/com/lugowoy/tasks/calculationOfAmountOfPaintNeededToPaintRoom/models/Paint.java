@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.awt.Color;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -69,10 +71,10 @@ public class Paint implements Serializable, Cloneable {
         Paint paint = new Paint();
         try {
             paint = (Paint) super.clone();
-            paint.setPricePerLiter(new BigDecimal(this.getPricePerLiter().doubleValue()));
-            paint.setColorPaint(new Color(this.getColorPaint().getRGB()));
+            paint.setPricePerLiter(DeepCloning.CLONER.deepClone(this.getPricePerLiter()));
+            paint.setColorPaint(DeepCloning.CLONER.deepClone(this.getColorPaint()));
             paint.setTypeOfPaint(this.getTypeOfPaint());//Enum is a singleton, so refers to the same instance.
-            paint.setExpenseOfPaintPerSquareMeter(new BigDecimal(this.getExpenseOfPaintPerSquareMeter().doubleValue()));
+            paint.setExpenseOfPaintPerSquareMeter(DeepCloning.CLONER.deepClone(this.getExpenseOfPaintPerSquareMeter()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

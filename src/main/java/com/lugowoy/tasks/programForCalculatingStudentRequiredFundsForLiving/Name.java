@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -45,8 +47,8 @@ public class Name implements Serializable, Cloneable {
         Name name = new Name();
         try {
             name = (Name) super.clone();
-            name.setFirstName(this.getFirstName());
-            name.setSecondName(this.getSecondName());
+            name.setFirstName(DeepCloning.CLONER.deepClone(this.getFirstName()));
+            name.setSecondName(DeepCloning.CLONER.deepClone(this.getSecondName()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

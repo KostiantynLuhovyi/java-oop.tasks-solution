@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -50,7 +52,7 @@ public class PlaceOfResidence implements Serializable, Cloneable {
         try {
             placeOfResidence = (PlaceOfResidence) super.clone();
             placeOfResidence.setNumberOfMonthsToStay(this.getNumberOfMonthsToStay());
-            placeOfResidence.setCostPlaceOfResidence(new BigDecimal(this.getCostPlaceOfResidence().doubleValue()));
+            placeOfResidence.setCostPlaceOfResidence(DeepCloning.CLONER.deepClone(this.getCostPlaceOfResidence()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 07.04.2017. */

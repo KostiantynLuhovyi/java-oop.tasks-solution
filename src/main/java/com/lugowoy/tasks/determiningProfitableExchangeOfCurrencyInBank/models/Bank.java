@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,9 +63,9 @@ public class Bank implements Serializable, Cloneable {
         Bank bank = new Bank();
         try {
             bank = (Bank) super.clone();
-            bank.setBankName(this.getBankName());
-            bank.setCurrencyList(this.getCurrencyList().stream().collect(Collectors.toList()));
-            bank.setCurrencyBalanceList(this.getCurrencyBalanceList().stream().collect(Collectors.toList()));
+            bank.setBankName(DeepCloning.CLONER.deepClone(this.getBankName()));
+            bank.setCurrencyList(DeepCloning.CLONER.deepClone(this.getCurrencyList()));
+            bank.setCurrencyBalanceList(DeepCloning.CLONER.deepClone(this.getCurrencyBalanceList()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

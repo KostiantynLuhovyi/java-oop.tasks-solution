@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -42,7 +44,7 @@ public class Stipend implements Serializable, Cloneable {
         Stipend stipend = new Stipend();
         try {
             stipend = (Stipend) super.clone();
-            stipend.setAmountOfStipend(new BigDecimal(this.getAmountOfStipend().doubleValue()));
+            stipend.setAmountOfStipend(DeepCloning.CLONER.deepClone(this.getAmountOfStipend()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -58,8 +60,8 @@ public class Student extends User {
         Student student = new Student();
         try {
             student = (Student) super.clone();
-            student.setName(this.getName().clone());
-            student.setStipend(this.getStipend().clone());
+            student.setName(DeepCloning.CLONER.deepClone(this.getName()));
+            student.setStipend(DeepCloning.CLONER.deepClone(this.getStipend()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

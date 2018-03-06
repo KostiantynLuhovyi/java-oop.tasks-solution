@@ -2,5 +2,5 @@ package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculatin
 
 /**Created by Konstantin Lugowoy on 22-Feb-17.*/
 
-public interface CalculatingExpense extends Calculating {
+public interface CalculatingExpense<T> extends Calculating<T> {
 }

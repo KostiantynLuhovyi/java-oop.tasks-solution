@@ -39,6 +39,18 @@ public class User implements Serializable, Cloneable {
                 ']';
     }
 
+    @Override
+    public User clone() {
+        User user = new User();
+        try {
+            user = (User) super.clone();
+            user.userId = this.getUserId();
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return user;
+    }
+
     public long getUserId() {
         return GeneratorRandomNumber.generateInt(0, Integer.MAX_VALUE);
     }

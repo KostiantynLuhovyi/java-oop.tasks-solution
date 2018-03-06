@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -47,8 +49,8 @@ public class Planet implements Serializable, Cloneable {
         Planet planet = new Planet();
         try {
             planet = (Planet) super.clone();
-            planet.setNamePlanet(this.getNamePlanet());
-            planet.setMassPlanet(new BigDecimal(this.getMassPlanet().doubleValue()));
+            planet.setNamePlanet(DeepCloning.CLONER.deepClone(this.getNamePlanet()));
+            planet.setMassPlanet(DeepCloning.CLONER.deepClone(this.getMassPlanet()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

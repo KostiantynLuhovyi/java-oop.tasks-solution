@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -59,7 +61,7 @@ public class CurrencyBalance implements Serializable, Cloneable {
         try {
             currencyBalance = (CurrencyBalance) super.clone();
             currencyBalance.setTypeOfCurrency(this.getTypeOfCurrency());// Enum is a singleton, so refers to the same instance.
-            currencyBalance.setCurrencyBalance(new BigDecimal(this.getCurrencyBalance().doubleValue()));
+            currencyBalance.setCurrencyBalance(DeepCloning.CLONER.deepClone(this.getCurrencyBalance()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

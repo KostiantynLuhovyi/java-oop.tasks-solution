@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -56,7 +58,7 @@ public class Currency implements Serializable, Cloneable {
         try {
             currency = (Currency) super.clone();
             currency.setTypeOfCurrency(this.getTypeOfCurrency());//Enum is a singleton, so refers to the same instance.
-            currency.setCurrencyRateList(this.getCurrencyRateList().stream().collect(Collectors.toList()));
+            currency.setCurrencyRateList(DeepCloning.CLONER.deepClone(this.getCurrencyRateList()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

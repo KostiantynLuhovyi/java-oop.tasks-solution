@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -57,9 +59,9 @@ public class Window implements Serializable, Cloneable {
         Window window = new Window();
         try {
             window = (Window) super.clone();
-            window.setWidthWindow(new BigDecimal(this.getWidthWindow().doubleValue()));
-            window.setHeightWindow(new BigDecimal(this.getHeightWindow().doubleValue()));
-            window.setAreaWindow(new BigDecimal(this.getAreaWindow().doubleValue()));
+            window.setWidthWindow(DeepCloning.CLONER.deepClone(this.getWidthWindow()));
+            window.setHeightWindow(DeepCloning.CLONER.deepClone(this.getHeightWindow()));
+            window.setAreaWindow(DeepCloning.CLONER.deepClone(this.getAreaWindow()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
