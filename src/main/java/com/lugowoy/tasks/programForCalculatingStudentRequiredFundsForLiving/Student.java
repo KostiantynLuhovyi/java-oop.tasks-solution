@@ -57,14 +57,9 @@ public class Student extends User {
 
     @Override
     public Student clone() {
-        Student student = new Student();
-        try {
-            student = (Student) super.clone();
-            student.setName(DeepCloning.CLONER.deepClone(this.getName()));
-            student.setStipend(DeepCloning.CLONER.deepClone(this.getStipend()));
-        } catch (CloneNotSupportedException ex) {
-            new InternalError(ex.getMessage()).printStackTrace();
-        }
+        Student student = (Student) super.clone();
+        student.setName(DeepCloning.CLONER.deepClone(this.getName()));
+        student.setStipend(DeepCloning.CLONER.deepClone(this.getStipend()));
         return student;
     }
 
