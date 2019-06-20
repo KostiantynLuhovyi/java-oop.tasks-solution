@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.determineSuitabilityOfComponent;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
 
 public class DeterminatorSuitabilityOfComponent {
 

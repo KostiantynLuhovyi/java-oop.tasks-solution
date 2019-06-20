@@ -5,7 +5,14 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Monthly student stipend is N UAH, and living expenses exceed the stipend and make M UAH per month.
+ * The price increase monthly increases expenses by 3%.
+ * Make a program for calculating the amount of money that you need to ask at a time
+ * from your parents so that you can live an academic year (10 months), using only this money and a stipend.
+ * <p>
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 public class Main {
 

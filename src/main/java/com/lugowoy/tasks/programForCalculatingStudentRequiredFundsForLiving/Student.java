@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 public class Student extends User {
 
@@ -58,8 +60,9 @@ public class Student extends User {
     @Override
     public Student clone() {
         Student student = (Student) super.clone();
-        student.setName(DeepCloning.CLONER.deepClone(this.getName()));
-        student.setStipend(DeepCloning.CLONER.deepClone(this.getStipend()));
+        Cloner cloner = new Cloner();
+        student.setName(cloner.deepClone(this.getName()));
+        student.setStipend(cloner.deepClone(this.getStipend()));
         return student;
     }
 

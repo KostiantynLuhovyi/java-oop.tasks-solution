@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 18.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 18.03.2017.
+ */
 
 public class CurrencyBalance implements Serializable, Cloneable {
 
@@ -61,7 +63,7 @@ public class CurrencyBalance implements Serializable, Cloneable {
         try {
             currencyBalance = (CurrencyBalance) super.clone();
             currencyBalance.setTypeOfCurrency(this.getTypeOfCurrency());// Enum is a singleton, so refers to the same instance.
-            currencyBalance.setCurrencyBalance(DeepCloning.CLONER.deepClone(this.getCurrencyBalance()));
+            currencyBalance.setCurrencyBalance(new Cloner().deepClone(this.getCurrencyBalance()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -5,7 +5,9 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/**
+ * Created by LugowoyKonstantin on 22-Feb-17.
+ */
 
 @FunctionalInterface
 public interface CalculatingAreaOfRoomWithoutDoorsAndWindows extends CalculatingArea {

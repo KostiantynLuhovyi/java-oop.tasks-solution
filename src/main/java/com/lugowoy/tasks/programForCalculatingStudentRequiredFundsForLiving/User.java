@@ -4,7 +4,9 @@ import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 public class User implements Serializable, Cloneable {
 

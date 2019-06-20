@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-/** Created by Konstantin Lugowoy on 10.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 10.04.2017.
+ */
 
 public class DeterminatorOfVotingWinners extends Determinator implements DeterminationOfVotingWinners<Collection<Option>, Quiz> {
 

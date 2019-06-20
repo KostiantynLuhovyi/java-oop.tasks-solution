@@ -5,7 +5,9 @@ import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Cu
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Created by Konstantin Lugowoy on 18.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 18.03.2017.
+ */
 
 @FunctionalInterface
 public interface CalculatingCurrencyRate {
@@ -14,7 +16,7 @@ public interface CalculatingCurrencyRate {
 
     static BigDecimal calculateCurrencyRate(CurrencyRate.Rate rate) {
         return new BigDecimal((Math.random() * (rate.getMaxRate() - rate.getMinRate()))
-                                                      + rate.getMinRate()).setScale(2, RoundingMode.HALF_DOWN);
+                + rate.getMinRate()).setScale(2, RoundingMode.HALF_DOWN);
     }
 
 }

@@ -8,7 +8,7 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Type
 import java.awt.*;
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 06.03.2017. */
+/** Created by LugowoyKonstantin on 06.03.2017. */
 
 public class FactoryPaint extends FactoryModel<Double> {
 

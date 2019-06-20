@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 06.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 06.04.2017.
+ */
 
 public class Quiz implements Serializable, Cloneable {
 
@@ -47,7 +49,7 @@ public class Quiz implements Serializable, Cloneable {
         Quiz quiz = new Quiz();
         try {
             quiz = (Quiz) super.clone();
-            quiz.setOptionList(DeepCloning.CLONER.deepClone(this.getOptionList()));
+            quiz.setOptionList(new Cloner().deepClone(this.getOptionList()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

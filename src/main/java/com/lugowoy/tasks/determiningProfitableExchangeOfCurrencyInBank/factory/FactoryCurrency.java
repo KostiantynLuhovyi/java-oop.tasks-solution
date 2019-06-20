@@ -3,7 +3,9 @@ package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory;
 import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
 import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public interface FactoryCurrency {
 

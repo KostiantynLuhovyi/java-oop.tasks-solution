@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public enum TypeOfCurrency implements Serializable {
     UAH(1), USD(2), EUR(3), RUB(4);
@@ -24,10 +26,18 @@ public enum TypeOfCurrency implements Serializable {
     public static TypeOfCurrency getIndexTypeOfCurrency(int indexTypeOfCurrency) {
         TypeOfCurrency typeOfCurrency = null;
         switch (indexTypeOfCurrency) {
-            case 1: typeOfCurrency = TypeOfCurrency.UAH; break;
-            case 2: typeOfCurrency = TypeOfCurrency.USD; break;
-            case 3: typeOfCurrency = TypeOfCurrency.EUR; break;
-            case 4: typeOfCurrency = TypeOfCurrency.RUB; break;
+            case 1:
+                typeOfCurrency = TypeOfCurrency.UAH;
+                break;
+            case 2:
+                typeOfCurrency = TypeOfCurrency.USD;
+                break;
+            case 3:
+                typeOfCurrency = TypeOfCurrency.EUR;
+                break;
+            case 4:
+                typeOfCurrency = TypeOfCurrency.RUB;
+                break;
         }
         return typeOfCurrency;
     }

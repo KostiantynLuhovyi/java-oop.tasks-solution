@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models;
 
-/**Created by Konstantin Lugowoy on 18-Feb-17.*/
+/**
+ * Created by LugowoyKonstantin on 18-Feb-17.
+ */
 
 public enum TypeOfSurface {
     TYPE_METAL_SURFACE,

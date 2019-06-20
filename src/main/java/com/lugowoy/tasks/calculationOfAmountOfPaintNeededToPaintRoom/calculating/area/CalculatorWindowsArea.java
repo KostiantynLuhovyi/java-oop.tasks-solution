@@ -6,10 +6,11 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Wind
 import java.math.BigDecimal;
 import java.util.List;
 
-/**Created by Konstantin Lugowoy on 22-Feb-17.*/
+/**
+ * Created by LugowoyKonstantin on 22-Feb-17.
+ */
 
-public class CalculatorWindowsArea extends CalculatorObjectArea<Window>
-                                                            implements CalculatingTotalAreaOfObjectInRoom<Window> {
+public class CalculatorWindowsArea extends CalculatorObjectArea<Window> implements CalculatingTotalAreaOfObjectInRoom<Window> {
 
     @Override
     public void calculateArea(Window window) {

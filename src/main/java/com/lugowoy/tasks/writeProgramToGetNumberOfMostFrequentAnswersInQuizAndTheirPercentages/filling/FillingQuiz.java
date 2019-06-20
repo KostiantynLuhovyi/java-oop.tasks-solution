@@ -8,7 +8,9 @@ import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTh
 import java.util.ArrayList;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 09.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.04.2017.
+ */
 
 public class FillingQuiz<T extends Enum> implements Filling<T> {
 

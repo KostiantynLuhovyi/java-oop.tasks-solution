@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Konstantin Lugowoy on 19.03.2017.
+ * Created by LugowoyKonstantin on 19.03.2017.
  */
 
 public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorBestRateForCurrencyExchange, DeterminatorBanksListCorrectnessOfSumOnBalanceForCurrencyExchange {
@@ -42,11 +42,11 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
                                                     currency.getCurrencyRateList().get(i).getCurrencyRate().doubleValue();
                                             resultBank =
                                                     determineBankProfitabilityRate(fromTypeOfCurrency,
-                                                                                   inTypeOfCurrency,
-                                                                                   resultBank,
-                                                                                   profitabilityValueRate,
-                                                                                   valueForComparisonOfRate,
-                                                                                   bank);
+                                                            inTypeOfCurrency,
+                                                            resultBank,
+                                                            profitabilityValueRate,
+                                                            valueForComparisonOfRate,
+                                                            bank);
 
                                             if (resultBank != null) {
                                                 for (Currency currencyOfResultBank : resultBank.getCurrencyList()) {
@@ -54,7 +54,7 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
                                                         for (CurrencyRate currencyRate : currencyOfResultBank.getCurrencyRateList()) {
                                                             if (currencyRate.getTypeOfCurrency() == inTypeOfCurrency) {
                                                                 profitabilityValueRate =
-                                                                            currencyRate.getCurrencyRate().doubleValue();
+                                                                        currencyRate.getCurrencyRate().doubleValue();
                                                             }
                                                         }
                                                     }
@@ -80,23 +80,23 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
         switch (fromTypeOfCurrency) {
             case UAH:
                 resultBank = determineBankProfitabilityRateForExchangeCurrencyUAH(inTypeOfCurrency, resultBank,
-                                                                                  profitabilityValueRate, valueForComparison,
-                                                                                  bank);
+                        profitabilityValueRate, valueForComparison,
+                        bank);
                 break;
             case EUR:
                 resultBank = determineBankProfitabilityRateForExchangeCurrencyEUR(inTypeOfCurrency, resultBank,
-                                                                                  profitabilityValueRate, valueForComparison,
-                                                                                  bank);
+                        profitabilityValueRate, valueForComparison,
+                        bank);
                 break;
             case USD:
                 resultBank = determineBankProfitabilityRateForExchangeCurrencyUSD(inTypeOfCurrency, resultBank,
-                                                                                  profitabilityValueRate, valueForComparison,
-                                                                                  bank);
+                        profitabilityValueRate, valueForComparison,
+                        bank);
                 break;
             case RUB:
                 resultBank = determineBankProfitabilityRateForExchangeCurrencyRUB(inTypeOfCurrency, resultBank,
-                                                                                  profitabilityValueRate, valueForComparison,
-                                                                                  bank);
+                        profitabilityValueRate, valueForComparison,
+                        bank);
                 break;
         }
         return resultBank;
@@ -109,11 +109,11 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
         switch (inTypeOfCurrency) {
             case EUR:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
             case USD:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
             case UAH:
                 if (valueForComparison > profitabilityValueRate) {
@@ -142,7 +142,7 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
         switch (inTypeOfCurrency) {
             case EUR:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
             case UAH:
                 if (valueForComparison > profitabilityValueRate) {
@@ -186,15 +186,15 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminatorB
         switch (inTypeOfCurrency) {
             case EUR:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
             case USD:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
             case RUB:
                 resultBank = getResultBankIfRateLowAsPossibleForBetterResult(resultBank, profitabilityValueRate,
-                                                                             valueForComparison, bank);
+                        valueForComparison, bank);
                 break;
         }
         return resultBank;

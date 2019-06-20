@@ -5,7 +5,9 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/**
+ * Created by LugowoyKonstantin on 22-Feb-17.
+ */
 
 public class CalculatorPercentOfAreaOfWindowsFromRoomArea
         implements CalculatingPercentOfAreaOfObjectsFromRoomArea {
@@ -13,7 +15,7 @@ public class CalculatorPercentOfAreaOfWindowsFromRoomArea
     @Override
     public BigDecimal calculatePercentage(Room room) {
         return new BigDecimal(room.getTotalAreaRoom()
-                        .multiply(new BigDecimal(room.getTotalAreaOfWindowsInRoom().doubleValue())
+                .multiply(new BigDecimal(room.getTotalAreaOfWindowsInRoom().doubleValue())
                         .divide(new BigDecimal(100), 2, RoundingMode.DOWN)).doubleValue());
     }
 

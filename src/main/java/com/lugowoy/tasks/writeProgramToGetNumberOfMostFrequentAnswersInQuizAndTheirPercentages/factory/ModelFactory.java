@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.factory;
 
-/** Created by Konstantin Lugowoy on 07.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.04.2017.
+ */
 
 public abstract class ModelFactory<T> {
 

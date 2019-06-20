@@ -2,7 +2,9 @@ package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndT
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 07.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.04.2017.
+ */
 
 public enum ValueForOptionJapanSymbols implements Serializable {
     Tanuki(0), Kiji(1), Tantyo(2), Deer(3), Cat(4);

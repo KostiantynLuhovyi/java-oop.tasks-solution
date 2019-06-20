@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 18.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 18.03.2017.
+ */
 
 public class CurrencyRate implements Serializable, Cloneable {
 
@@ -78,7 +80,7 @@ public class CurrencyRate implements Serializable, Cloneable {
         try {
             currencyRate = (CurrencyRate) super.clone();
             currencyRate.setTypeOfCurrency(this.getTypeOfCurrency());//Enum is a singleton, so refers to the same instance.
-            currencyRate.setCurrencyRate(DeepCloning.CLONER.deepClone(this.getCurrencyRate()));
+            currencyRate.setCurrencyRate(new Cloner().deepClone(this.getCurrencyRate()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
@@ -109,7 +111,8 @@ public class CurrencyRate implements Serializable, Cloneable {
         RUB_TO_EUR_AND_EUR_TO_RUB(60.00, 64.00),
         USD_TO_EUR_AND_EUR_TO_USD(1.030, 1.090);
 
-        private double minRate; double maxRate;
+        private double minRate;
+        double maxRate;
 
         Rate(double minRate, double maxRate) {
             this.minRate = minRate;

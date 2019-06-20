@@ -1,14 +1,18 @@
 package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
 
+/**
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
+
 public enum DataOfPlanet {
-    MERCURY (3.303E+23),
-    VENUS   (4.869E+24),
-    EARTH   (5.976E+24),
-    MARS    (6.421E+23),
-    JUPITER (1.9E+27),
-    SATURN  (5.688E+26),
-    URANUS  (8.686E+25),
-    NEPTUNE (1.024E+26);
+    MERCURY(3.303E+23),
+    VENUS(4.869E+24),
+    EARTH(5.976E+24),
+    MARS(6.421E+23),
+    JUPITER(1.9E+27),
+    SATURN(5.688E+26),
+    URANUS(8.686E+25),
+    NEPTUNE(1.024E+26);
 
     private final double mass;
 

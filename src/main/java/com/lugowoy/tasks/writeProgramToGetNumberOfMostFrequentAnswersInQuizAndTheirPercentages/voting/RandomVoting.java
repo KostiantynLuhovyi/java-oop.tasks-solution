@@ -5,7 +5,9 @@ import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTh
 
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 07.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.04.2017.
+ */
 
 public class RandomVoting<T extends Enum> extends Voting<T> {
 

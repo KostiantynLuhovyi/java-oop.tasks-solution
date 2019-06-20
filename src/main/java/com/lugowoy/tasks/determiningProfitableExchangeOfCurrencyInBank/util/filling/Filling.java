@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.fil
 
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public interface Filling<T> {
 

@@ -5,7 +5,9 @@ import com.lugowoy.helper.io.reading.Reading;
 import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Option;
 import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
 
-/** Created by Konstantin Lugowoy on 07.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.04.2017.
+ */
 
 public class UserVoting<T extends Enum> extends Voting<T> {
 

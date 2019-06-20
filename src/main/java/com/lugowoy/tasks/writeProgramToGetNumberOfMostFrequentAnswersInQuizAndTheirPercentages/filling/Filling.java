@@ -2,7 +2,9 @@ package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndT
 
 import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
 
-/** Created by Konstantin Lugowoy on 09.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.04.2017.
+ */
 
 @FunctionalInterface
 public interface Filling<T extends Enum> {

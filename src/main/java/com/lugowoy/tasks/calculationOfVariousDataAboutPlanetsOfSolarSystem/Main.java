@@ -14,7 +14,13 @@ import java.util.Objects;
 
 import static com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.SolarSystem.PLANETS_IN_THE_SOLAR_SYSTEM;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * Calculate the total mass of all the planets of the solar system.
+ * Calculate the arithmetic mean of the masses of the planets.
+ * Then - the mass of each planet in percentages, if we take as 100% the total mass of all the planets.
+ * <p>
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
 
 public class Main {
 
@@ -42,10 +48,8 @@ public class Main {
 
         System.out.println("The mass of each planet in percentages, if we take as 100% the total mass of all the planets.");
         planetsList.forEach(planet -> System.out.println(planet.getNamePlanet() + " = "
-                                                                                    + new BigDecimal(100)
-                                                                                      .multiply(planet.getMassPlanet()
-                                                                                      .divide(sumMassAllPlanetsInTheSolarSystem,
-                                                                                              5, RoundingMode.HALF_DOWN))));
+                            + new BigDecimal(100).multiply(planet.getMassPlanet()
+                                                      .divide(sumMassAllPlanetsInTheSolarSystem, 5, RoundingMode.HALF_DOWN))));
 
     }
 

@@ -6,7 +6,9 @@ import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Ba
 
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 18.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 18.03.2017.
+ */
 
 public abstract class FillingBankList {
 

@@ -6,7 +6,9 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room
 
 import java.math.BigDecimal;
 
-/**Created by Konstantin Lugowoy on 21-Feb-17.*/
+/**
+ * Created by LugowoyKonstantin on 21-Feb-17.
+ */
 
 public class FactoryRoom extends FactoryModel<Double> {
 

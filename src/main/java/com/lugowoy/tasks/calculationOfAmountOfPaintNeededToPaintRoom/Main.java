@@ -15,7 +15,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-/**Created by Konstantin Lugowoy on 17-Feb-17.*/
+/**
+ * Enter the length, width and height of the room.
+ * Calculate how much paint will go to painting the walls of this room,
+ * if there are N liters of paint per 1 m2 of wall and M% of the wall surface is occupied by windows and doors.
+ * Also, calculate the total cost of paint, taking into account that one liter of paint costs R UAH.
+ * <p>
+ * Created by LugowoyKonstantin on 17-Feb-17.
+ */
 
 public class Main {
 
@@ -79,25 +86,25 @@ public class Main {
         System.out.println();
 
         room.setAreaRoomWithoutAreaDoorsAndWindows((room.getTotalAreaRoom()
-                                                                    .subtract(room.getTotalAreaOfWindowsInRoom())
-                                                                    .subtract(room.getTotalAreaOfDoorsInRoom())));
+                .subtract(room.getTotalAreaOfWindowsInRoom())
+                .subtract(room.getTotalAreaOfDoorsInRoom())));
         System.out.println("Area of the room without windows and doors : " + room.getAreaRoomWithoutAreaDoorsAndWindows());
         System.out.println();
 
         Paint paint = FACTORY_PAINT.create();
 
         paint.setExpenseOfPaintPerSquareMeter(DETERMINE_EXPENSE_OF_PAINT_PER_SQUARE_METER_OF_CONCRETE_SURFACE
-                                                            .determine(room.getTypeOfSurface(), paint.getTypeOfPaint()));
+                .determine(room.getTypeOfSurface(), paint.getTypeOfPaint()));
 
         CalculatingExpensePaintForRoom calculatingExpensePaintForRoom = new CalculatorExpensePaintForRoom();
         BigDecimal amountOfPaintNeededToPaintRoom = calculatingExpensePaintForRoom.calculateExpensePaintForRoom(room, paint);
 
         System.out.println("The amount of paint needed to paint the room : "
-                                              + amountOfPaintNeededToPaintRoom.setScale(SCALE, RoundingMode.HALF_DOWN));
+                + amountOfPaintNeededToPaintRoom.setScale(SCALE, RoundingMode.HALF_DOWN));
 
         BigDecimal totalCostOfPaintForRoom = amountOfPaintNeededToPaintRoom.multiply(paint.getPricePerLiter());
         System.out.println("Total cost of paint for the room : "
-                                                     + totalCostOfPaintForRoom.setScale(SCALE, RoundingMode.HALF_DOWN));
+                + totalCostOfPaintForRoom.setScale(SCALE, RoundingMode.HALF_DOWN));
     }
 
     private static List<Window> getListOfWindowsInRoom(int numberWindowInRoom) {
@@ -134,7 +141,6 @@ public class Main {
                            "WOOD : 3; \n" +
                            "PLASTER : 4; \n" +
                            "GYPSUM PLASTERBOARD : 5;");
-
         int chooseResult = READER.readInt();
         if ((chooseResult >= 1) && (chooseResult <= 5)) {
             resultTypeOfSurface = determinationOfResultWallSurface(chooseResult);

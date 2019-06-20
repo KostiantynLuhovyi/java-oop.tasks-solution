@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determineSuitabilityOfComponent;
 
 import java.util.Collection;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
 
 public class BatchOfComponents {
 

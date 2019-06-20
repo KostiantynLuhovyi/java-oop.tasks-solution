@@ -6,7 +6,9 @@ import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTh
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Created by Konstantin Lugowoy on 11.04.2017. */
+/**
+ * Created by LugowoyKonstantin on 11.04.2017.
+ */
 
 public class DeterminatorPercentageOfAllVotingOptions extends Determinator implements DeterminationPercentageOfAllVotingOptions<Quiz> {
 

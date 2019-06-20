@@ -1,12 +1,14 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 public class Stipend implements Serializable, Cloneable {
 
@@ -44,7 +46,7 @@ public class Stipend implements Serializable, Cloneable {
         Stipend stipend = new Stipend();
         try {
             stipend = (Stipend) super.clone();
-            stipend.setAmountOfStipend(DeepCloning.CLONER.deepClone(this.getAmountOfStipend()));
+            stipend.setAmountOfStipend(new Cloner().deepClone(this.getAmountOfStipend()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

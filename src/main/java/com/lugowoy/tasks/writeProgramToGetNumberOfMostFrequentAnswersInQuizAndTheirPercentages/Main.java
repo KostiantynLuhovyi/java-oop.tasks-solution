@@ -16,7 +16,12 @@ import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTh
 import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting.UserVoting;
 import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting.Voting;
 
-/** Created by Konstantin Lugowoy on 07.04.2017. */
+/**
+ * The radio company interviewed N radio listeners on the question: "What animal do you connect with Japan and the Japanese?"
+ * To compile a program for obtaining k of the most frequently encountered answers and their shares (in percentages).
+ * <p>
+ * Created by LugowoyKonstantin on 07.04.2017.
+ */
 
 public class Main {
 
@@ -101,7 +106,7 @@ public class Main {
         while (true) {
             System.out.println("Make a choice : ");
             System.out.println("Meaningful vote - press '1' ;\n" +
-                               "Random vote - press '2' .");
+                    "Random vote - press '2' .");
             resultSelectionVotingOption = READER.readInt();
             if ((resultSelectionVotingOption > 0) && (resultSelectionVotingOption < 3)) {
                 break;
@@ -118,7 +123,7 @@ public class Main {
         System.out.println("You know the number of participants in vote ? ");
         while (true) {
             System.out.println("No - press '1' ;\n" +
-                               "Yes - press '2' .");
+                    "Yes - press '2' .");
             resultChoiceQuantityOfVote = READER.readInt();
             if ((resultChoiceQuantityOfVote > 0) && (resultChoiceQuantityOfVote < 3)) {
                 break;

@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public class Bank implements Serializable, Cloneable {
 
@@ -60,11 +62,12 @@ public class Bank implements Serializable, Cloneable {
     @Override
     public Bank clone() {
         Bank bank = new Bank();
+        Cloner cloner = new Cloner();
         try {
             bank = (Bank) super.clone();
-            bank.setBankName(DeepCloning.CLONER.deepClone(this.getBankName()));
-            bank.setCurrencyList(DeepCloning.CLONER.deepClone(this.getCurrencyList()));
-            bank.setCurrencyBalanceList(DeepCloning.CLONER.deepClone(this.getCurrencyBalanceList()));
+            bank.setBankName(cloner.deepClone(this.getBankName()));
+            bank.setCurrencyList(cloner.deepClone(this.getCurrencyList()));
+            bank.setCurrencyBalanceList(cloner.deepClone(this.getCurrencyBalanceList()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -1,12 +1,12 @@
 package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**Created by Konstantin Lugowoy on 17-Feb-17.*/
+/**Created by LugowoyKonstantin on 17-Feb-17.*/
 
 public class Room implements Serializable, Cloneable {
 
@@ -107,19 +107,20 @@ public class Room implements Serializable, Cloneable {
     @Override
     public Room clone() {
         Room room = new Room();
+        Cloner cloner = new Cloner();
         try {
             room = (Room) super.clone();
-            room.setWidthRoom(DeepCloning.CLONER.deepClone(this.getWidthRoom()));
-            room.setLengthRoom(DeepCloning.CLONER.deepClone(this.getLengthRoom()));
-            room.setHeightRoom(DeepCloning.CLONER.deepClone(this.getHeightRoom()));
-            room.setTotalAreaRoom(DeepCloning.CLONER.deepClone(this.getTotalAreaRoom()));
-            room.setAreaRoomWithoutAreaDoorsAndWindows(DeepCloning.CLONER.deepClone(this.getAreaRoomWithoutAreaDoorsAndWindows()));
-            room.setWindowListInFlat(DeepCloning.CLONER.deepClone(this.getWindowListInFlat()));
-            room.setPercentageOfAreaOfWindowsFromAreaRoom(DeepCloning.CLONER.deepClone(this.getPercentageOfAreaOfWindowsFromAreaRoom()));
-            room.setTotalAreaOfWindowsInRoom(DeepCloning.CLONER.deepClone(DeepCloning.CLONER.deepClone(this.getTotalAreaOfWindowsInRoom())));
-            room.setDoorListInFlat(DeepCloning.CLONER.deepClone(this.getDoorListInFlat()));
-            room.setPercentageOfAreaOfDoorsFromAreaRoom(DeepCloning.CLONER.deepClone(this.getPercentageOfAreaOfDoorsFromAreaRoom()));
-            room.setTotalAreaOfDoorsInRoom(DeepCloning.CLONER.deepClone(this.getTotalAreaOfDoorsInRoom()));
+            room.setWidthRoom(cloner.deepClone(this.getWidthRoom()));
+            room.setLengthRoom(cloner.deepClone(this.getLengthRoom()));
+            room.setHeightRoom(cloner.deepClone(this.getHeightRoom()));
+            room.setTotalAreaRoom(cloner.deepClone(this.getTotalAreaRoom()));
+            room.setAreaRoomWithoutAreaDoorsAndWindows(cloner.deepClone(this.getAreaRoomWithoutAreaDoorsAndWindows()));
+            room.setWindowListInFlat(cloner.deepClone(this.getWindowListInFlat()));
+            room.setPercentageOfAreaOfWindowsFromAreaRoom(cloner.deepClone(this.getPercentageOfAreaOfWindowsFromAreaRoom()));
+            room.setTotalAreaOfWindowsInRoom(cloner.deepClone(cloner.deepClone(this.getTotalAreaOfWindowsInRoom())));
+            room.setDoorListInFlat(cloner.deepClone(this.getDoorListInFlat()));
+            room.setPercentageOfAreaOfDoorsFromAreaRoom(cloner.deepClone(this.getPercentageOfAreaOfDoorsFromAreaRoom()));
+            room.setTotalAreaOfDoorsInRoom(cloner.deepClone(this.getTotalAreaOfDoorsInRoom()));
             room.setTypeOfSurface(this.getTypeOfSurface());//Enum is a singleton, so refers to the same instance
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();

@@ -5,7 +5,9 @@ import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model
 import java.math.BigDecimal;
 import java.util.Collection;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
 
 public class CalculatorMassAllPlanets {
 

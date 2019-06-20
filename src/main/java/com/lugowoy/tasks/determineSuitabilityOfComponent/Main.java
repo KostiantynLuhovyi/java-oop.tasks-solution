@@ -7,7 +7,12 @@ import com.lugowoy.helper.other.GeneratorRandomNumber;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * The suitability of the component is estimated by the size B, which must correspond to the interval (A - N, A + N).
+ * Calculate the number of suitable and unusable components.
+ * <p>
+ * Created by Konstantin Lugowoy on 07.03.2017.
+ */
 
 public class Main {
 
@@ -21,14 +26,14 @@ public class Main {
         BatchOfComponents batchOfComponents = new BatchOfComponents(fillBatchOfComponent());
         batchOfComponents.getComponentsCollection().forEach(System.out::println);
 
-        System.out.println("Enter first interval :" );
+        System.out.println("Enter first interval :");
         int firstInterval = reader.readInt();
         System.out.println("Enter second interval : ");
         int secondInterval = reader.readInt();
 
 
         DeterminatorSuitabilityOfComponent determinatorSuitabilityOfComponent =
-                                                new DeterminatorSuitabilityOfComponent(firstInterval, secondInterval);
+                                                  new DeterminatorSuitabilityOfComponent(firstInterval, secondInterval);
 
         determinatorSuitabilityOfComponent.determineSuitabilityOfComponent(batchOfComponents);
 

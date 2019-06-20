@@ -3,7 +3,9 @@ package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.mode
 import java.io.Serializable;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 07.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 07.03.2017.
+ */
 
 public class SolarSystem implements Serializable, Cloneable {
 

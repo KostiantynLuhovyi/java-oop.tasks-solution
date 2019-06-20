@@ -5,7 +5,9 @@ import java.math.RoundingMode;
 
 import static com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving.PlaceOfResidence.PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 @FunctionalInterface
 public interface Calculating {
@@ -28,10 +30,10 @@ public interface Calculating {
         BigDecimal percentageOfMonthlyIncreaseInCostOfLiving = PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
         for (int i = 1; i <= 10; i++) {
             double differentPercentageOfAmount = placeOfResidence.getCostPlaceOfResidence().multiply(percentageOfMonthlyIncreaseInCostOfLiving)
-                                                                                           .divide(new BigDecimal(100), RoundingMode.HALF_DOWN)
-                                                                                           .doubleValue();
+                    .divide(new BigDecimal(100), RoundingMode.HALF_DOWN)
+                    .doubleValue();
             totalAmountOfMoneyForAllMonthsOfResidence = totalAmountOfMoneyForAllMonthsOfResidence.add(placeOfResidence.getCostPlaceOfResidence()
-                                                                                                 .add(new BigDecimal(differentPercentageOfAmount)));
+                    .add(new BigDecimal(differentPercentageOfAmount)));
             percentageOfMonthlyIncreaseInCostOfLiving = percentageOfMonthlyIncreaseInCostOfLiving.add(new BigDecimal(3));
         }
         return totalAmountOfMoneyForAllMonthsOfResidence;

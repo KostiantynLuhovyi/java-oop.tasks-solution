@@ -5,7 +5,9 @@ import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Type
 
 import java.math.BigDecimal;
 
-/**Created by Konstantin Lugowoy on 20-Feb-17.*/
+/**
+ * Created by LugowoyKonstantin on 20-Feb-17.
+ */
 
 public class DeterminatorExpensesOfPaintPerSquareMeterOfConcreteSurface {
 

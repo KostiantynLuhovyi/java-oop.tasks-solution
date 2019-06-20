@@ -12,7 +12,9 @@ import java.util.List;
 
 import static com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.CurrencyRate.Rate;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public abstract class FillingBankCurrency {
 

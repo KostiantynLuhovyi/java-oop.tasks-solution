@@ -16,7 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 09.03.2017. */
+/**
+ * Identify the bank from the available for the most beneficial exchange of selected currencies and amounts.
+ * <p>
+ * Created by LugowoyKonstantin on 09.03.2017.
+ */
 
 public class Main {
 
@@ -42,12 +46,12 @@ public class Main {
         System.out.println();
 
         DeterminerCurrencyProfitabilityOfBanksList determinerCurrencyProfitability =
-                                                                       new DeterminerCurrencyProfitabilityOfBanksList();
+                new DeterminerCurrencyProfitabilityOfBanksList();
 
         List<Bank> banks =
                 determinerCurrencyProfitability.determineBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange(banksListInTheCity,
-                                                                                                                   currencyInWhichYouWantToExchange,
-                                                                                                                   sumToBeExchanged);
+                        currencyInWhichYouWantToExchange,
+                        sumToBeExchanged);
         if (!banks.isEmpty()) {
             System.out.println("List of banks that have the amount to exchange money : ");
             banks.forEach(System.out::println);
@@ -55,8 +59,8 @@ public class Main {
         }
 
         Bank bank = determinerCurrencyProfitability.determineBankToBestRateForConcreteCurrencyExchange(banks,
-                                                                                                       currency.getTypeOfCurrency(),
-                                                                                                       currencyInWhichYouWantToExchange);
+                currency.getTypeOfCurrency(),
+                currencyInWhichYouWantToExchange);
 
         if (Objects.nonNull(bank)) {
             System.out.println("The most profitable bank for the exchange of funds you choose : ");

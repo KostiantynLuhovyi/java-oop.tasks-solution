@@ -1,12 +1,14 @@
 package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Created by LugowoyKonstantin on 02.11.2017.
+ */
 
 public class PlaceOfResidence implements Serializable, Cloneable {
 
@@ -52,7 +54,7 @@ public class PlaceOfResidence implements Serializable, Cloneable {
         try {
             placeOfResidence = (PlaceOfResidence) super.clone();
             placeOfResidence.setNumberOfMonthsToStay(this.getNumberOfMonthsToStay());
-            placeOfResidence.setCostPlaceOfResidence(DeepCloning.CLONER.deepClone(this.getCostPlaceOfResidence()));
+            placeOfResidence.setCostPlaceOfResidence(new Cloner().deepClone(this.getCostPlaceOfResidence()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
