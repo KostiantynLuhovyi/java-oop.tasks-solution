@@ -1,13 +1,15 @@
-package com.lugowoy.tasks.tasksForWorkingWithVectors;
+package com.lugowoy.tasks.tasksForWorkingWithVectors.calculating;
+
+import com.lugowoy.tasks.tasksForWorkingWithVectors.vectors.Vector2D;
 
 import java.math.BigDecimal;
 
 /**
- * Created by Konstantin Lugowoy on 29.11.2018.
+ * Created by LugowoyKonstantin on 29.11.2018.
  */
 
 @FunctionalInterface
-public interface CalculationVector2D<T extends Number> {
+public interface CalculatingVector2D<T extends Number> {
 
     Vector2D<T> calculate(Vector2D<T> firstVector, Vector2D<T> secondVector);
 
@@ -41,15 +43,22 @@ public interface CalculationVector2D<T extends Number> {
         return result;
     }
 
-    static <T extends Number> void incrementVector(Vector2D<T> vector2D) {
-        double valueX = vector2D.getX().doubleValue() + 1;
-        vector2D.setX();
+    @SuppressWarnings("unchecked")
+    static <T extends Number> Vector2D<T> incrementVector(Vector2D<T> vector2D) {
+        vector2D.setX((T) Double.valueOf(new BigDecimal(vector2D.getX().doubleValue()).add(new BigDecimal(1)).doubleValue()));
+        vector2D.setY((T) Double.valueOf(new BigDecimal(vector2D.getY().doubleValue()).add(new BigDecimal(1)).doubleValue()));
+        return vector2D;
     }
 
-    static <T extends Number> void decrementVector(Vector2D<T> vector2D)
+    @SuppressWarnings("unchecked")
+    static <T extends Number> Vector2D<T> decrementVector(Vector2D<T> vector2D) {
+        vector2D.setX((T) Double.valueOf(new BigDecimal(vector2D.getX().doubleValue()).subtract(new BigDecimal(1)).doubleValue()));
+        vector2D.setY((T) Double.valueOf(new BigDecimal(vector2D.getY().doubleValue()).subtract(new BigDecimal(1)).doubleValue()));
+    }
+
 
     private static <T extends Number> boolean isEqualVectorLength(Vector2D<T> firstVector, Vector2D<T> secondVector) {
-        return firstVector.getLengthVector() == secondVector.getLengthVector();
+        return firstVector.getLength() == secondVector.getLength();
     }
 
 }
